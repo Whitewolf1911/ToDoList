@@ -4,20 +4,28 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/styles.css" />
     <title>To Do List</title>
   </head>
   <body>
-    <h1>Bugün <%= dayofWeek %> !</h1>
-    <ul>
-     
-      <% listArray.forEach(element => {  %>
-        <li> <%=element %> </li> 
-        <% }); %>
-    </ul>
+    <div class="box" id="heading">
+      <h1>Bugün <%= dayofWeek %></h1>
+    </div>
 
-    <form action="/" method="post">
-      <input type="text" name="todoItem" placeholder="Yeni Görev" />
-      <button type="submit">Ekle</button>
-    </form>
+    <div class="box">
+      <% for (let i=0; i< listArray.length; i++){ %>
+      <div class="item">
+        <input type="checkbox" />
+        <p><%= listArray[i] %></p>
+      </div>
+      <% } %> 
+
+      <form action="/" method="post">
+        <input type="text" name="todoItem" placeholder="Yeni Görev" autocomplete="off" />
+        <button type="submit">+</button>
+      </form>
+    </div>
+
+    
   </body>
 </html>
